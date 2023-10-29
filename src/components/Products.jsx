@@ -7,8 +7,8 @@ export default function Products() {
         isLoading,
         error,
         data: products,
-    } = useQuery(['products'], async () => {
-        return fetch(`data/products.json`).then((res) => res.json());
+    } = useQuery(['products', checked], async () => {
+        return fetch(`data/${checked ? 'sale_' : ''}products.json`).then((res) => res.json());
     });
 
     //const [loading, error, products] = useProducts({ salesOnly: checked });
